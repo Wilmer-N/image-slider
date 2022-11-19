@@ -7,7 +7,32 @@
     box-sizing: border-box;
     padding: 0;
 }
+body{
+    background-color: #000;
+}
+.dot{
+    width: 20px;
+    height: 20px;
+    bottom: 100px;
+    border-radius: 50%;
+    border: 3px solid black;
+    margin: 10px;
+    background-color: #fff;
+}
+.dot[active]{
+    background-color: #000;
+}
 
+#dot-container{
+    position: absolute;
+    bottom: 50px;
+    width: 500px;
+    left: calc(50% - 250px);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 #image-container{
     width: var(--image-container-width);
     height: var(--image-container-height);
@@ -21,13 +46,25 @@ img{
     position: absolute;
     transition: transform 400ms ease-in-out;
 }
+#right > svg, #left > svg{
+    width: 100px;
+    height: 100px;
+    color: rgba(255, 255, 255, 0.5);
+    transition: transform 300ms;
+}
+#right > svg:hover, #left > svg:hover{
+    color: rgb(255, 255, 255, 0.9);
+}
+#right > svg:hover{
+    transform: scale(1.2) translate(10px, -15px) rotate(10deg);
+}
+#left > svg:hover{
+    transform: scale(1.2) translate(-10px, -15px) rotate(-10deg);
+}
 
 #image-container > #left, #image-container > #right{
     position: absolute;
-    height: 30px;
-    width: 30px;
-    background-color: #fff;
-    top: calc(50% - 15px);
+    top: calc(50% - 50px);
     z-index: 10;
 }
 
