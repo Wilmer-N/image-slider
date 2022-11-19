@@ -1,0 +1,45 @@
+:root{
+    --image-container-width: 100%;
+    --image-container-height: 100vh;
+}
+*{
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+#image-container{
+    width: var(--image-container-width);
+    height: var(--image-container-height);
+    background-color: #000;
+    position: relative;
+}
+img{
+    width: var(--image-container-width);
+    height: var(--image-container-width);
+    object-fit: cover;
+    position: absolute;
+    transition: transform 400ms ease-in-out;
+}
+
+#image-container > #left, #image-container > #right{
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    background-color: #fff;
+    top: calc(50% - 15px);
+    z-index: 10;
+}
+
+#image-container > #left{
+    left: 10px;
+}
+#image-container > #right{
+    right: 10px;
+}
+img[where="left"]{
+    transform: translate(-100vw);
+}
+img[where="right"]{
+    transform: translate(100vw);
+}
